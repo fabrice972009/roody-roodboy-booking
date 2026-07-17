@@ -137,6 +137,11 @@
     font-size:12px; letter-spacing:0.32em; text-transform:uppercase;
     color:var(--gold); margin-bottom:18px; display:block;
   }
+  .eyebrow-row{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:16px;
+  }
+  .hero-contact-inline{ display:none; }
   .hero h1{
     font-size:clamp(64px, 13vw, 168px);
     line-height:0.86;
@@ -455,7 +460,13 @@
     .hero-content{ padding-bottom:100px; }
     .hero-sub{ margin-top:14px; font-size:14px; }
     .hero-logo{ width:80vw; }
-    .hero-contact{ top:90px; bottom:auto; right:5vw; font-size:12px; align-items:flex-end; }
+    .hero-contact{ display:none; }
+    .hero-contact-inline{
+      display:flex; flex-direction:column; align-items:flex-end;
+      gap:4px; font-size:11px; color:rgba(242,240,235,0.75);
+      text-align:right; flex-shrink:0;
+    }
+    .hero-contact-inline a{ color:rgba(242,240,235,0.85); border-bottom:1px solid rgba(242,240,235,0.25); padding-bottom:1px; }
     .hero-socials{ gap:14px; bottom:20px; margin-top:20px; }
     .hero-socials a{ width:32px; height:32px; }
     .hero-socials svg{ width:14px; height:14px; }
@@ -495,7 +506,13 @@
 <section class="hero">
   <img src="img/hero.jpg" alt="Roody Roodboy">
   <div class="hero-content">
-    <span class="eyebrow">Official Booking</span>
+    <div class="eyebrow-row">
+      <span class="eyebrow">Official Booking</span>
+      <div class="hero-contact-inline">
+        <a href="mailto:booking@roodyroodboy.com">booking@roodyroodboy.com</a>
+        <a href="tel:+50934507575">+509 3450 7575</a>
+      </div>
+    </div>
     <h1 class="display">Roody<br>Roodboy</h1>
     <p class="hero-sub">Konpa. Afro-Caribbean. R&B. One of Haiti's defining contemporary voices — available for concerts, festivals, private events, and international tours.</p>
   </div>
