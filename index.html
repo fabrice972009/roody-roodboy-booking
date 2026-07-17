@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roody Roodboy — Official Booking</title>
+<meta name="description" content="Official booking site for Roody Roodboy, one of Haiti's most celebrated contemporary artists. Book him for concerts, festivals, private events, and international tours.">
+<meta name="keywords" content="Roody Roodboy, Haitian music, Konpa, Haitian artist booking, Haitian hip hop, book Roody Roodboy">
+<meta name="author" content="Roody Roodboy">
+
+<!-- Open Graph / Facebook, Instagram, WhatsApp, iMessage -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Roody Roodboy — Official Booking">
+<meta property="og:description" content="One of Haiti's most celebrated contemporary artists. Available for concerts, festivals, private events, and international tours.">
+<meta property="og:image" content="img/og-image.jpg">
+<meta property="og:url" content="https://roodyroodboy.com">
+<meta property="og:site_name" content="Roody Roodboy">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Roody Roodboy — Official Booking">
+<meta name="twitter:description" content="One of Haiti's most celebrated contemporary artists. Available for concerts, festivals, private events, and international tours.">
+<meta name="twitter:image" content="img/og-image.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b0b0c;
+    --paper:#f2f0eb;
+    --red:#a11d2b;
+    --gold:#c9a24a;
+    --gray:#8a8a86;
+    --line: rgba(242,240,235,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+  }
+  .display{
+    font-family:'Anton',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  /* NAV */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 5vw;
+    background:linear-gradient(180deg, rgba(11,11,12,0.55) 0%, rgba(11,11,12,0) 100%);
+  }
+  .nav-mark{ display:flex; align-items:center; gap:10px; font-size:14px; letter-spacing:0.12em; }
+  .nav-mark img{ height:38px; filter:invert(1); }
+  .nav-links{ display:flex; gap:36px; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; }
+  .nav-links a{
+    color:var(--paper);
+    opacity:0.92;
+    padding:8px 4px;
+    border-bottom:1px solid transparent;
+    transition:opacity .25s, border-color .25s;
+  }
+  .nav-links a:hover{ opacity:1; border-color:var(--gold); }
+
+  /* MOBILE NAV */
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:6px;
+    width:30px; height:24px;
+    background:none; border:none;
+    cursor:pointer;
+    z-index:200;
+  }
+  .nav-toggle span{
+    display:block;
+    width:100%; height:2px;
+    background:var(--paper);
+    transition:transform .3s, opacity .3s;
+  }
+  .nav-toggle.open span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2){ opacity:0; }
+  .nav-toggle.open span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
+
+  .mobile-menu{
+    position:fixed; inset:0; z-index:150;
+    background:var(--ink);
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:36px;
+    opacity:0; pointer-events:none;
+    transition:opacity .3s;
+  }
+  .mobile-menu.open{ opacity:1; pointer-events:auto; }
+  .mobile-menu a{
+    font-family:'Anton',sans-serif;
+    font-size:32px; text-transform:uppercase;
+    color:var(--paper); letter-spacing:0.02em;
+  }
+  .mobile-menu a:hover{ color:var(--gold); }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    height:100vh;
+    height:100svh;
+    min-height:640px;
+    display:flex;
+    align-items:flex-end;
+  }
+  .hero img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center 20%;
+    filter:grayscale(1) contrast(1.08);
+  }
+  .hero::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(11,11,12,0.05) 0%, rgba(11,11,12,0.15) 45%, rgba(11,11,12,0.96) 92%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    padding:0 5vw 64px;
+    width:100%;
+  }
+  .eyebrow{
+    font-size:12px; letter-spacing:0.32em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:18px; display:block;
+  }
+  .hero h1{
+    font-size:clamp(64px, 13vw, 168px);
+    line-height:0.86;
+    color:var(--paper);
+  }
+  .hero-sub{
+    max-width:520px;
+    margin-top:22px;
+    font-size:16px;
+    color:rgba(242,240,235,0.72);
+    line-height:1.5;
+  }
+  .hero-contact{
+    position:absolute;
+    bottom:32px; right:5vw;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:10px;
+    font-size:13px;
+    letter-spacing:0.02em;
+    color:rgba(242,240,235,0.55);
+    text-align:right;
+  }
+  .hero-contact .label{
+    font-size:11px; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:2px;
+  }
+  .hero-contact a{ color:rgba(242,240,235,0.85); border-bottom:1px solid rgba(242,240,235,0.25); padding-bottom:2px; transition:color .25s, border-color .25s; }
+  .hero-contact a:hover{ color:var(--gold); border-color:var(--gold); }
+  .hero-logo{
+    width: min(720px, 62vw);
+    filter: invert(1) drop-shadow(0 4px 40px rgba(0,0,0,0.5));
+  }
+  .scroll-cue{
+    display:none;
+    position:absolute; bottom:28px; right:5vw; z-index:2;
+    font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
+    color:rgba(242,240,235,0.55);
+    writing-mode:vertical-rl;
+  }
+  .hero-socials{
+    position:absolute; bottom:28px; left:0; right:0; z-index:2;
+    display:flex; align-items:center; justify-content:center; gap:22px;
+    flex-wrap:wrap; padding:0 5vw;
+  }
+  .hero-socials a{
+    width:38px; height:38px;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid rgba(242,240,235,0.28);
+    border-radius:50%;
+    color:var(--paper);
+    opacity:0.8;
+    transition:opacity .25s, border-color .25s, transform .2s;
+  }
+  .hero-socials a:hover{ opacity:1; border-color:var(--gold); transform:translateY(-2px); }
+  .hero-socials svg{ width:17px; height:17px; fill:currentColor; }
+
+  /* MARK DIVIDER */
+  .mark-divider{
+    position:relative;
+    display:flex; align-items:center; justify-content:center;
+    padding:64px 5vw;
+    overflow:hidden;
+  }
+  .mark-divider img{
+    height:46px;
+    filter: invert(14%) sepia(64%) saturate(2400%) hue-rotate(335deg) brightness(75%) contrast(95%);
+    opacity:0.9;
+  }
+  .mark-divider .rule{
+    position:absolute; left:5vw; right:5vw; top:50%;
+    height:1px; background:var(--line);
+    z-index:0;
+  }
+  .mark-divider .mark-wrap{ position:relative; z-index:1; background:var(--ink); padding:0 28px; }
+
+  /* BIO */
+  .bio{
+    display:grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap:0;
+    padding:0 5vw 120px;
+    align-items:center;
+  }
+  .bio-img{
+    position:relative;
+    aspect-ratio: 3/4;
+    overflow:hidden;
+  }
+  .bio-img img{
+    width:100%; height:100%; object-fit:cover;
+    filter:contrast(1.05);
+  }
+  .bio-text{ padding-left:64px; }
+  .section-label{
+    font-size:12px; letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--red); display:block; margin-bottom:20px; font-weight:600;
+  }
+  .bio-text h2{
+    font-size:clamp(32px, 3.6vw, 52px);
+    line-height:1.08;
+    margin-bottom:28px;
+    max-width:600px;
+  }
+  .bio-text p{
+    font-size:16px; line-height:1.75;
+    color:rgba(242,240,235,0.78);
+    max-width:560px;
+    margin-bottom:20px;
+  }
+  .stat-row{
+    display:flex; gap:48px; margin-top:36px;
+    flex-wrap:wrap;
+  }
+  .stat{ border-left:2px solid var(--gold); padding-left:16px; }
+  .stat .num{ font-family:'Anton',sans-serif; font-size:32px; display:block; }
+  .stat .label{ font-size:12px; letter-spacing:0.06em; color:var(--gray); text-transform:uppercase; margin-top:4px; }
+
+  /* AVAILABLE FOR */
+  .services{
+    padding:0 5vw 120px;
+  }
+  .services-head{ margin-bottom:56px; }
+  .services-head h2{ font-size:clamp(32px, 4vw, 56px); max-width:760px; line-height:1.05; }
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    border-top:1px solid var(--line);
+  }
+  .service-item{
+    padding:32px 24px 32px 0;
+    border-bottom:1px solid var(--line);
+    border-right:1px solid var(--line);
+  }
+  .service-item:last-child{ border-right:none; }
+  .service-item .n{ font-size:12px; color:var(--gray); letter-spacing:0.1em; margin-bottom:44px; display:block; }
+  .service-item h3{
+    font-family:'Anton',sans-serif;
+    font-size:22px; text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .service-item p{ font-size:14px; color:rgba(242,240,235,0.6); line-height:1.5; }
+
+  /* MUSIC */
+  .music{ padding:0 5vw 120px; }
+  .music-head{ margin-bottom:48px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; }
+  .music-head h2{ font-size:clamp(32px,4vw,56px); max-width:600px; line-height:1.05; }
+  .platform-links{ display:flex; gap:20px; flex-wrap:wrap; }
+  .platform-links a{
+    font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
+    padding:10px 18px; border:1px solid var(--line); transition:border-color .25s, color .25s;
+  }
+  .platform-links a:hover{ border-color:var(--gold); color:var(--gold); }
+  .track-list{ border-top:1px solid var(--line); }
+
+  /* EVENTS */
+  .events{ padding:0 5vw 120px; }
+  .events-head{ margin-bottom:48px; }
+  .events-head h2{ font-size:clamp(32px,4vw,56px); max-width:600px; line-height:1.05; }
+  .event-list{ border-top:1px solid var(--line); }
+  .event-row{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    align-items:center;
+    gap:24px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .event-row .date{
+    font-family:'Anton',sans-serif;
+    font-size:16px; letter-spacing:0.04em;
+    color:var(--gold); text-transform:uppercase;
+  }
+  .event-row .name{ font-size:19px; font-weight:600; }
+  .event-row .venue{ font-size:13px; color:var(--gray); margin-top:3px; font-weight:400; }
+  @media (max-width: 640px){
+    .event-row{ grid-template-columns:1fr; gap:6px; }
+  }
+  .track{
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .track-head{
+    display:grid;
+    grid-template-columns:60px 1fr;
+    align-items:center;
+    gap:24px;
+    margin-bottom:16px;
+  }
+  .track .idx{ font-family:'Anton',sans-serif; font-size:22px; color:var(--gray); }
+  .track .title{ font-size:20px; font-weight:600; }
+  .track .note{ font-size:13px; color:var(--gray); margin-top:4px; font-weight:400; }
+  .track iframe{ border-radius:8px; width:100%; height:80px; display:block; }
+
+  /* PERFORMANCE STRIP */
+  .strip{
+    position:relative;
+    height:70vh;
+    min-height:460px;
+    display:flex;
+    align-items:center;
+  }
+  .strip img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    object-position:center 25%;
+  }
+  .strip::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(90deg, rgba(11,11,12,0.92) 0%, rgba(11,11,12,0.45) 55%, rgba(11,11,12,0.15) 100%);
+  }
+  .strip-content{ position:relative; z-index:2; padding:0 5vw; max-width:560px; }
+  .strip-content .eyebrow{ color:var(--gold); }
+  .strip-content h2{ font-size:clamp(30px,4vw,50px); line-height:1.1; margin-bottom:18px; }
+  .strip-content p{ font-size:15px; color:rgba(242,240,235,0.75); line-height:1.65; }
+
+  /* BOOKING */
+  .booking{
+    padding:120px 5vw 100px;
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:80px;
+  }
+  .booking-intro h2{
+    font-size:clamp(34px,4vw,54px);
+    line-height:1.05;
+    margin-bottom:24px;
+    max-width:460px;
+  }
+  .booking-intro p{
+    font-size:15px; line-height:1.7; color:rgba(242,240,235,0.72);
+    max-width:440px; margin-bottom:36px;
+  }
+  .contact-block{ margin-top:8px; }
+  .contact-row{
+    display:flex; align-items:baseline; gap:14px;
+    padding:16px 0; border-bottom:1px solid var(--line);
+  }
+  .contact-row .k{ font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gray); width:90px; flex-shrink:0; }
+  .contact-row a, .contact-row span.v{ font-size:16px; font-weight:500; }
+  .contact-row a:hover{ color:var(--gold); }
+  .social-row{ display:flex; gap:14px; margin-top:28px; flex-wrap:wrap; }
+  .social-row a{
+    width:40px; height:40px;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--line);
+    border-radius:50%;
+    color:var(--paper);
+    opacity:0.85;
+    transition:opacity .25s, border-color .25s, transform .2s;
+  }
+  .social-row a:hover{ opacity:1; border-color:var(--gold); transform:translateY(-2px); }
+  .social-row svg{ width:18px; height:18px; fill:currentColor; }
+
+  form{ display:flex; flex-direction:column; gap:22px; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .field{ display:flex; flex-direction:column; gap:8px; }
+  .field label{ font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gray); }
+  .field input, .field textarea, .field select{
+    background:transparent;
+    border:none;
+    border-bottom:1px solid var(--line);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    padding:10px 0;
+    outline:none;
+    transition:border-color .25s;
+  }
+  .field select option{ background:var(--ink); }
+  .field input:focus, .field textarea:focus, .field select:focus{ border-color:var(--gold); }
+  .field textarea{ resize:vertical; min-height:96px; }
+  .submit-btn{
+    margin-top:12px;
+    background:var(--red);
+    color:var(--paper);
+    border:none;
+    padding:18px 36px;
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-weight:600;
+    cursor:pointer;
+    align-self:flex-start;
+    transition:background .25s, transform .2s;
+  }
+  .submit-btn:hover{ background:#c22333; transform:translateY(-2px); }
+  .form-note{ font-size:12px; color:var(--gray); margin-top:4px; }
+  .success-msg{
+    display:none;
+    background:rgba(161,29,43,0.12);
+    border:1px solid var(--red);
+    padding:20px 24px;
+    font-size:14px;
+    line-height:1.6;
+  }
+  .success-msg.show{ display:block; }
+
+  /* FOOTER */
+  footer{
+    border-top:1px solid var(--line);
+    padding:36px 5vw;
+    display:flex; align-items:center; justify-content:space-between;
+    font-size:12px; color:var(--gray);
+  }
+  footer .foot-mark{ display:flex; align-items:center; gap:10px; }
+  footer .foot-mark img{ height:18px; filter:invert(1); opacity:0.6; }
+
+  @media (max-width: 900px){
+    .nav-links{ display:none; }
+    .nav-toggle{ display:flex; }
+    .hero{ height:92vh; height:92svh; min-height:560px; }
+    .hero h1{ font-size:clamp(42px, 14vw, 88px); line-height:0.9; }
+    .hero-content{ padding-bottom:100px; }
+    .hero-sub{ margin-top:14px; font-size:14px; }
+    .hero-logo{ width:80vw; }
+    .hero-contact{ top:90px; bottom:auto; right:5vw; font-size:12px; align-items:flex-end; }
+    .hero-socials{ gap:14px; bottom:20px; margin-top:20px; }
+    .hero-socials a{ width:32px; height:32px; }
+    .hero-socials svg{ width:14px; height:14px; }
+    .bio{ grid-template-columns:1fr; gap:40px; padding-bottom:80px; }
+    .bio-text{ padding-left:0; }
+    .service-grid{ grid-template-columns:repeat(2,1fr); }
+    .booking{ grid-template-columns:1fr; gap:56px; padding-top:80px; }
+    .form-row{ grid-template-columns:1fr; }
+    footer{ flex-direction:column; gap:12px; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-mark">
+    <img src="img/logo.png" alt="Roody Roodboy">
+  </div>
+  <div class="nav-links">
+    <a href="#bio">Biography</a>
+    <a href="#music">Music</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Booking</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#bio">Biography</a>
+  <a href="#music">Music</a>
+  <a href="#events">Events</a>
+  <a href="#contact">Booking</a>
+</div>
+
+<section class="hero">
+  <img src="img/hero.jpg" alt="Roody Roodboy">
+  <div class="hero-content">
+    <span class="eyebrow">Official Booking</span>
+    <h1 class="display">Roody<br>Roodboy</h1>
+    <p class="hero-sub">Konpa. Afro-Caribbean. R&B. One of Haiti's defining contemporary voices — available for concerts, festivals, private events, and international tours.</p>
+  </div>
+  <div class="hero-contact">
+    <span class="label">Booking</span>
+    <a href="mailto:booking@roodyroodboy.com">booking@roodyroodboy.com</a>
+    <a href="tel:+50934507575">+509 3450 7575</a>
+  </div>
+  <span class="scroll-cue" style="bottom:96px;">Scroll — Découvrir</span>
+  <div class="hero-socials">
+    <a href="https://www.instagram.com/roodyroodboyhaiti" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.27-2.91.57a5.9 5.9 0 0 0-2.14 1.39A5.9 5.9 0 0 0 .6 4.17c-.3.76-.51 1.63-.57 2.91C-.01 8.36 0 8.77 0 12s.01 3.64.07 4.92c.06 1.28.27 2.15.57 2.91.3.79.71 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.63.51 2.91.57 1.28.06 1.69.07 4.94.07s3.66-.01 4.94-.07c1.28-.06 2.15-.27 2.91-.57a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.51-1.63.57-2.91.06-1.28.07-1.69.07-4.92s-.01-3.64-.07-4.92c-.06-1.28-.27-2.15-.57-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.79.64c-.76-.3-1.63-.51-2.91-.57C15.6.01 15.19 0 11.94 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@RoodyRoodboy" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+    </a>
+    <a href="https://open.spotify.com/intl-fr/artist/5VgONLRcpRrg4FbBstSxhN" target="_blank" rel="noopener" aria-label="Spotify">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.6 11.66 1.34.36.22.47.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 0 1-.55-1.8c4.36-1.32 9.79-.68 13.5 1.6.44.27.58.85.31 1.29zm.13-3.41C15.24 8.3 8.83 8.1 5.12 9.2a1.12 1.12 0 1 1-.64-2.15c4.25-1.28 11.32-1.04 15.8 1.62a1.12 1.12 0 1 1-1.18 1.9z"/></svg>
+    </a>
+    <a href="https://music.apple.com/us/artist/roody-roodboy/634161826" target="_blank" rel="noopener" aria-label="Apple Music">
+      <svg viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.05C21 .461 20.253.196 19.466.06c-.573-.1-1.154-.13-1.734-.13H6.268c-.417 0-.834.03-1.25.09-1.02.15-1.93.51-2.71 1.19C1.42 1.96.9 2.87.62 3.98.35 5.05.28 6.14.28 7.24v9.53c0 1.09.07 2.18.34 3.25.28 1.1.8 2.02 1.69 2.75.78.66 1.69 1.03 2.7 1.19.42.06.83.09 1.25.09h11.46c.58 0 1.16-.03 1.73-.13.79-.14 1.53-.4 2.11-.83 1.11-.75 1.86-1.74 2.18-3.05.2-.83.28-1.68.28-2.53V6.12zM17.13 6.1c.15 0 .3.02.44.05.44.13.65.55.51.99a2.7 2.7 0 0 1-.28.55c-.35.5-.85.79-1.44.9-.13.03-.26.04-.4.04h-.05c-.15 0-.3-.02-.44-.05a.85.85 0 0 1-.51-.99c.06-.19.15-.38.28-.55.35-.5.85-.79 1.44-.9.13-.03.26-.04.4-.04h.05zm-.16 4.53v6.02c0 .38-.02.77-.13 1.14-.19.66-.62 1.11-1.28 1.34-.28.1-.57.14-.87.14-.63 0-1.16-.2-1.55-.7a1.7 1.7 0 0 1-.36-1.06c0-.53.2-.96.58-1.32.29-.27.63-.44 1.01-.55.31-.09.63-.16.94-.24.34-.09.5-.28.5-.63v-3.6c0-.2-.1-.3-.29-.27l-4.68 1v5.9c0 .38-.02.77-.13 1.14-.19.66-.62 1.11-1.28 1.34-.28.1-.57.14-.87.14-.63 0-1.16-.2-1.55-.7a1.7 1.7 0 0 1-.36-1.06c0-.53.2-.96.58-1.32.29-.27.63-.44 1.01-.55.31-.09.63-.16.94-.24.34-.09.5-.28.5-.63V9.4c0-.44.15-.68.58-.78l5.9-1.26c.09-.02.18-.03.28-.03.42 0 .68.24.68.68v3.62z"/></svg>
+    </a>
+    <a href="https://audiomack.com/roodyroodboy" target="_blank" rel="noopener" aria-label="Audiomack">
+      <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7 8.5l5-2.9v12.8l-5-2.9V8.5zm10 0v6.9l-3.5-2v-3l3.5-2z"/></svg>
+    </a>
+    <a href="https://m.soundcloud.com/roodyroodboy" target="_blank" rel="noopener" aria-label="SoundCloud">
+      <svg viewBox="0 0 24 24"><path d="M1.5 11.5a.5.5 0 0 0-1 0v4a.5.5 0 0 0 1 0v-4zm2-1.5a.5.5 0 0 0-1 0v6.5a.5.5 0 0 0 1 0V10zm2-1a.5.5 0 0 0-1 0v8a.5.5 0 0 0 1 0v-8zm2-.7a.5.5 0 0 0-1 0v9.4a.5.5 0 0 0 1 0V8.3zm2-.8a.5.5 0 0 0-1 0v11a.5.5 0 0 0 1 0v-11zm1.5-1.2c-.28 0-.5.22-.5.5v12.4c0 .28.22.5.5.5s.5-.22.5-.5V6.8c0-.28-.22-.5-.5-.5zm2 .4a.6.6 0 0 0-.6.6v11.8c0 .33.27.6.6.6s.6-.27.6-.6V7.2a.6.6 0 0 0-.6-.6zm7.4 3.3a4.2 4.2 0 0 0-1.75.38A5.1 5.1 0 0 0 14.1 6a.5.5 0 0 0-.6.4v12.2c.03.26.24.46.5.46h9.2A2.8 2.8 0 0 0 26 16.3a2.8 2.8 0 0 0-2.8-2.8c-.1 0-.2 0-.3.01a4.2 4.2 0 0 0-3.6-3.7z"/></svg>
+    </a>
+  </div>
+</section>
+
+<div class="mark-divider">
+  <div class="rule"></div>
+  <div class="mark-wrap"><img src="img/logo.png" alt=""></div>
+</div>
+
+<section class="bio" id="bio">
+  <div class="bio-img">
+    <img src="img/blue.jpg" alt="Roody Roodboy portrait">
+  </div>
+  <div class="bio-text">
+    <span class="section-label">Biography</span>
+    <h2 class="display">A defining voice in Haitian music</h2>
+    <p>Roody Roodboy is one of Haiti's most celebrated contemporary artists, renowned for his powerful voice, captivating stage presence, and ability to blend emotion with infectious rhythms. Fusing Konpa, Afro-Caribbean, R&B, and modern pop influences, he has become a defining figure in Haitian music, earning millions of streams and a devoted fan base across Haiti and the global Haitian diaspora.</p>
+    <p>Known for delivering unforgettable live performances, Roody brings unmatched energy and authenticity to every stage. His catalog of hit songs, heartfelt lyrics, and dynamic performances have made him a sought-after headliner for concerts, festivals, cultural celebrations, private events, and international tours.</p>
+    <p>Whether performing for intimate audiences or thousands of fans, Roody creates an experience that connects people through music, culture, and passion — a reputation that has solidified him as one of the premier entertainers in the Haitian music industry.</p>
+    <div class="stat-row">
+      <div class="stat"><span class="num display">100M+</span><span class="label">Streams Worldwide</span></div>
+      <div class="stat"><span class="num display">Global</span><span class="label">Diaspora Reach</span></div>
+      <div class="stat"><span class="num display">Live</span><span class="label">Headline Performer</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="music" id="music">
+  <div class="music-head">
+    <div>
+      <span class="section-label">Popular Tracks</span>
+      <h2 class="display">Roody's Most Successful Songs</h2>
+    </div>
+    <div class="platform-links">
+      <a href="https://open.spotify.com/intl-fr/artist/5VgONLRcpRrg4FbBstSxhN" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://music.apple.com/us/artist/roody-roodboy/634161826" target="_blank" rel="noopener">Apple Music</a>
+      <a href="https://www.youtube.com/@RoodyRoodboy" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://audiomack.com/roodyroodboy" target="_blank" rel="noopener">Audiomack</a>
+      <a href="https://m.soundcloud.com/roodyroodboy" target="_blank" rel="noopener">SoundCloud</a>
+    </div>
+  </div>
+  <div class="track-list">
+    <div class="track">
+      <div class="track-head">
+        <span class="idx display">01</span>
+        <div><span class="title">An Kachet</span><div class="note">His most-streamed track on Spotify</div></div>
+      </div>
+      <iframe src="https://open.spotify.com/embed/track/1JrgKqgSU0WGVQutMofbqB?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="track">
+      <div class="track-head">
+        <span class="idx display">02</span>
+        <div><span class="title">Fo Fim Kap Fèt</span><div class="note">One of his highest-streamed singles</div></div>
+      </div>
+      <iframe src="https://open.spotify.com/embed/track/66rzCur3Wl9x3XQ61QaUET?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="track">
+      <div class="track-head">
+        <span class="idx display">03</span>
+        <div><span class="title">Karese'm La</span><div class="note">A fan favorite with millions of streams</div></div>
+      </div>
+      <iframe src="https://open.spotify.com/embed/track/6qPbXF9Sk432BOsta5J61j?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="track">
+      <div class="track-head">
+        <span class="idx display">04</span>
+        <div><span class="title">Tranble</span><div class="note">A defining early hit, still a live favorite</div></div>
+      </div>
+      <iframe src="https://open.spotify.com/embed/track/21YUQ95ER7LZy7KttsWfFy?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="events" id="events">
+  <div class="events-head">
+    <span class="section-label">Upcoming Events</span>
+    <h2 class="display">Where to catch him next</h2>
+  </div>
+  <div class="event-list">
+    <div class="event-row">
+      <span class="date">Aug 6</span>
+      <div><span class="name">Meet & Greet</span><div class="venue">Caribbean Bar & Restaurant</div></div>
+    </div>
+    <div class="event-row">
+      <span class="date">Aug 7</span>
+      <div><span class="name">Soirée du Konpa</span><div class="venue">Caribbean Bar & Restaurant</div></div>
+    </div>
+    <div class="event-row">
+      <span class="date">Aug 8</span>
+      <div><span class="name">Caribbean Pool Party Fest</span><div class="venue">Private Location</div></div>
+    </div>
+    <div class="event-row">
+      <span class="date">Aug 9</span>
+      <div><span class="name">Creole Brunch</span><div class="venue">Caribbean Bar & Restaurant</div></div>
+    </div>
+    <div class="event-row">
+      <span class="date">Aug 9</span>
+      <div><span class="name">After Party: Game Night</span><div class="venue">Caribbean Bar & Restaurant</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <img src="img/hero.jpg" alt="Roody Roodboy live">
+  <div class="strip-content">
+    <span class="eyebrow">On Stage</span>
+    <h2 class="display">Music, culture, and passion — every time he performs</h2>
+    <p>From intimate rooms to festival crowds of thousands, Roody's live shows are built on authenticity — a reputation earned one performance at a time.</p>
+  </div>
+</section>
+
+<section class="booking" id="contact">
+  <div class="booking-intro">
+    <span class="section-label">Booking</span>
+    <h2 class="display">Let's bring Roody Roodboy to your event</h2>
+    <p>For booking inquiries, appearance requests, and performance opportunities, reach the management team directly or submit the form — we'll respond with availability and next steps.</p>
+
+    <div class="contact-block">
+      <div class="contact-row">
+        <span class="k">Email</span>
+        <a href="mailto:booking@roodyroodboy.com">booking@roodyroodboy.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="k">Phone</span>
+        <a href="tel:+50934507575" class="v">+509 3450 7575</a>
+      </div>
+    </div>
+    <div class="social-row">
+      <a href="https://www.instagram.com/roodyroodboyhaiti" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.27-2.91.57a5.9 5.9 0 0 0-2.14 1.39A5.9 5.9 0 0 0 .6 4.17c-.3.76-.51 1.63-.57 2.91C-.01 8.36 0 8.77 0 12s.01 3.64.07 4.92c.06 1.28.27 2.15.57 2.91.3.79.71 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.63.51 2.91.57 1.28.06 1.69.07 4.94.07s3.66-.01 4.94-.07c1.28-.06 2.15-.27 2.91-.57a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.51-1.63.57-2.91.06-1.28.07-1.69.07-4.92s-.01-3.64-.07-4.92c-.06-1.28-.27-2.15-.57-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.79.64c-.76-.3-1.63-.51-2.91-.57C15.6.01 15.19 0 11.94 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@RoodyRoodboy" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+      </a>
+      <a href="https://open.spotify.com/intl-fr/artist/5VgONLRcpRrg4FbBstSxhN" target="_blank" rel="noopener" aria-label="Spotify">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.6 11.66 1.34.36.22.47.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 0 1-.55-1.8c4.36-1.32 9.79-.68 13.5 1.6.44.27.58.85.31 1.29zm.13-3.41C15.24 8.3 8.83 8.1 5.12 9.2a1.12 1.12 0 1 1-.64-2.15c4.25-1.28 11.32-1.04 15.8 1.62a1.12 1.12 0 1 1-1.18 1.9z"/></svg>
+      </a>
+      <a href="https://music.apple.com/us/artist/roody-roodboy/634161826" target="_blank" rel="noopener" aria-label="Apple Music">
+        <svg viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.05C21 .461 20.253.196 19.466.06c-.573-.1-1.154-.13-1.734-.13H6.268c-.417 0-.834.03-1.25.09-1.02.15-1.93.51-2.71 1.19C1.42 1.96.9 2.87.62 3.98.35 5.05.28 6.14.28 7.24v9.53c0 1.09.07 2.18.34 3.25.28 1.1.8 2.02 1.69 2.75.78.66 1.69 1.03 2.7 1.19.42.06.83.09 1.25.09h11.46c.58 0 1.16-.03 1.73-.13.79-.14 1.53-.4 2.11-.83 1.11-.75 1.86-1.74 2.18-3.05.2-.83.28-1.68.28-2.53V6.12zM17.13 6.1c.15 0 .3.02.44.05.44.13.65.55.51.99a2.7 2.7 0 0 1-.28.55c-.35.5-.85.79-1.44.9-.13.03-.26.04-.4.04h-.05c-.15 0-.3-.02-.44-.05a.85.85 0 0 1-.51-.99c.06-.19.15-.38.28-.55.35-.5.85-.79 1.44-.9.13-.03.26-.04.4-.04h.05zm-.16 4.53v6.02c0 .38-.02.77-.13 1.14-.19.66-.62 1.11-1.28 1.34-.28.1-.57.14-.87.14-.63 0-1.16-.2-1.55-.7a1.7 1.7 0 0 1-.36-1.06c0-.53.2-.96.58-1.32.29-.27.63-.44 1.01-.55.31-.09.63-.16.94-.24.34-.09.5-.28.5-.63v-3.6c0-.2-.1-.3-.29-.27l-4.68 1v5.9c0 .38-.02.77-.13 1.14-.19.66-.62 1.11-1.28 1.34-.28.1-.57.14-.87.14-.63 0-1.16-.2-1.55-.7a1.7 1.7 0 0 1-.36-1.06c0-.53.2-.96.58-1.32.29-.27.63-.44 1.01-.55.31-.09.63-.16.94-.24.34-.09.5-.28.5-.63V9.4c0-.44.15-.68.58-.78l5.9-1.26c.09-.02.18-.03.28-.03.42 0 .68.24.68.68v3.62z"/></svg>
+      </a>
+      <a href="https://audiomack.com/roodyroodboy" target="_blank" rel="noopener" aria-label="Audiomack">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7 8.5l5-2.9v12.8l-5-2.9V8.5zm10 0v6.9l-3.5-2v-3l3.5-2z"/></svg>
+      </a>
+      <a href="https://m.soundcloud.com/roodyroodboy" target="_blank" rel="noopener" aria-label="SoundCloud">
+        <svg viewBox="0 0 24 24"><path d="M1.5 11.5a.5.5 0 0 0-1 0v4a.5.5 0 0 0 1 0v-4zm2-1.5a.5.5 0 0 0-1 0v6.5a.5.5 0 0 0 1 0V10zm2-1a.5.5 0 0 0-1 0v8a.5.5 0 0 0 1 0v-8zm2-.7a.5.5 0 0 0-1 0v9.4a.5.5 0 0 0 1 0V8.3zm2-.8a.5.5 0 0 0-1 0v11a.5.5 0 0 0 1 0v-11zm1.5-1.2c-.28 0-.5.22-.5.5v12.4c0 .28.22.5.5.5s.5-.22.5-.5V6.8c0-.28-.22-.5-.5-.5zm2 .4a.6.6 0 0 0-.6.6v11.8c0 .33.27.6.6.6s.6-.27.6-.6V7.2a.6.6 0 0 0-.6-.6zm7.4 3.3a4.2 4.2 0 0 0-1.75.38A5.1 5.1 0 0 0 14.1 6a.5.5 0 0 0-.6.4v12.2c.03.26.24.46.5.46h9.2A2.8 2.8 0 0 0 26 16.3a2.8 2.8 0 0 0-2.8-2.8c-.1 0-.2 0-.3.01a4.2 4.2 0 0 0-3.6-3.7z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <form id="bookingForm">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="field">
+          <label for="org">Company / Organization</label>
+          <input type="text" id="org">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="eventdate">Event Date</label>
+          <input type="date" id="eventdate">
+        </div>
+        <div class="field">
+          <label for="eventtype">Event Type</label>
+          <select id="eventtype">
+            <option>Concert</option>
+            <option>Festival</option>
+            <option>Private Event</option>
+            <option>International Tour</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="location">Event Location</label>
+        <input type="text" id="location" placeholder="City, Country">
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Tell us about your event..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Submit Inquiry</button>
+      <p class="form-note">Submissions are sent directly to the management team. We typically respond within 2–3 business days.</p>
+      <div class="success-msg" id="successMsg">Thank you — your inquiry has been received. The management team will reach out shortly to discuss availability.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-mark">
+    <img src="img/logo.png" alt="Roody Roodboy">
+    <span>© 2026 Roody Roodboy. All rights reserved.</span>
+  </div>
+  <span>Official Booking Site</span>
+</footer>
+
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('successMsg').classList.add('show');
+  this.reset();
+});
+
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+navToggle.addEventListener('click', function(){
+  navToggle.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(function(link){
+  link.addEventListener('click', function(){
+    navToggle.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+</script>
+
+</body>
+</html>
