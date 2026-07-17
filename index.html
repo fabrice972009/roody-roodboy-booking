@@ -1,32 +1,53 @@
-
-
-Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roody Roodboy — Official Booking</title>
-<meta name="description" content="Official booking site for Roody Roodboy, one of Haiti's most celebrated contemporary artists. Book him for concerts, festivals, private events, and international tours.">
+<title>Roody Roodboy | Official Booking, Concerts & Events</title>
+<meta name="description" content="Book Roody Roodboy for concerts, festivals, private events, appearances, and international tours. Official booking and management website.">
 <meta name="keywords" content="Roody Roodboy, Haitian music, Konpa, Haitian artist booking, Haitian hip hop, book Roody Roodboy">
 <meta name="author" content="Roody Roodboy">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="canonical" href="https://roodyroodboy.com/">
  
 <!-- Open Graph / Facebook, Instagram, WhatsApp, iMessage -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Roody Roodboy — Official Booking">
+<meta property="og:title" content="Roody Roodboy | Official Booking, Concerts & Events">
 <meta property="og:description" content="One of Haiti's most celebrated contemporary artists. Available for concerts, festivals, private events, and international tours.">
-<meta property="og:image" content="img/og-image.jpg">
-<meta property="og:url" content="https://roodyroodboy.com">
+<meta property="og:image" content="https://roodyroodboy.com/img/og-image.jpg">
+<meta property="og:image:alt" content="Roody Roodboy official booking">
+<meta property="og:url" content="https://roodyroodboy.com/">
 <meta property="og:site_name" content="Roody Roodboy">
  
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Roody Roodboy — Official Booking">
+<meta name="twitter:title" content="Roody Roodboy | Official Booking, Concerts & Events">
 <meta name="twitter:description" content="One of Haiti's most celebrated contemporary artists. Available for concerts, festivals, private events, and international tours.">
-<meta name="twitter:image" content="img/og-image.jpg">
+<meta name="twitter:image" content="https://roodyroodboy.com/img/og-image.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "Roody Roodboy",
+  "url": "https://roodyroodboy.com/",
+  "image": "https://roodyroodboy.com/img/og-image.jpg",
+  "genre": ["Konpa", "Afro-Caribbean", "R&B"],
+  "email": "booking@roodyroodboy.com",
+  "telephone": "+50934507575",
+  "sameAs": [
+    "https://www.instagram.com/roodyroodboyhaiti",
+    "https://www.youtube.com/@RoodyRoodboy",
+    "https://open.spotify.com/intl-fr/artist/5VgONLRcpRrg4FbBstSxhN",
+    "https://music.apple.com/us/artist/roody-roodboy/634161826",
+    "https://audiomack.com/roodyroodboy",
+    "https://m.soundcloud.com/roodyroodboy"
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -315,13 +336,62 @@ Index · HTML
     background:linear-gradient(100deg, transparent 0 4%, rgba(201,162,74,0.32) 4% 96%, transparent 96%);
     padding:0 0.06em;
   }
-  .platform-links{ display:flex; flex-wrap:wrap; align-items:baseline; }
-  .platform-links a{
-    font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
-    color:rgba(242,240,235,0.72); transition:color .25s;
+  .platform-links{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:14px;
   }
-  .platform-links a:hover{ color:var(--gold); }
-  .platform-links a + a::before{ content:'·'; color:var(--gold); margin:0 14px; }
+  .platform-links a{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--line);
+    border-radius:50%;
+    color:rgba(242,240,235,0.78);
+    transition:color .25s, border-color .25s, transform .2s, opacity .25s;
+    opacity:.9;
+  }
+  .platform-links a:hover{
+    color:var(--gold);
+    border-color:var(--gold);
+    transform:translateY(-3px) scale(1.05);
+    opacity:1;
+  }
+  .platform-links svg{
+    width:20px;
+    height:20px;
+    fill:currentColor;
+    display:block;
+  }
+  .hero-cta{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:28px;
+    padding:15px 24px;
+    background:var(--red);
+    color:var(--paper);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    transition:background .25s, transform .2s;
+  }
+  .hero-cta:hover{
+    background:#c22333;
+    transform:translateY(-2px);
+  }
+  .hero-cta:focus-visible,
+  .platform-links a:focus-visible,
+  .nav-links a:focus-visible,
+  .mobile-menu a:focus-visible,
+  .submit-btn:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:4px;
+  }
   .track-list{ border-top:1px solid var(--line); }
  
   /* EVENTS */
@@ -532,6 +602,7 @@ Index · HTML
     .hero h1{ font-size:clamp(42px, 14vw, 88px); line-height:0.9; }
     .hero-content{ padding-bottom:100px; }
     .hero-sub{ margin-top:14px; font-size:14px; }
+    .hero-cta{ margin-top:20px; padding:13px 20px; }
     .hero-logo{ width:80vw; }
     .hero-contact{ display:none; }
     .hero-contact-inline{
@@ -565,12 +636,12 @@ Index · HTML
     <a href="#events">Events</a>
     <a href="#contact">Booking</a>
   </div>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+  <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
  
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <a href="#bio">Biography</a>
   <a href="#music">Music</a>
   <a href="#events">Events</a>
@@ -578,10 +649,10 @@ Index · HTML
 </div>
  
 <section class="hero">
-  <img src="img/hero.jpg" alt="Roody Roodboy">
+  <img src="img/hero.jpg" alt="Roody Roodboy performing" fetchpriority="high" decoding="async">
   <div class="hero-content">
     <div class="eyebrow-row">
-      <span class="eyebrow">Official Booking</span>
+      <span class="eyebrow">Official Booking &amp; Management</span>
       <div class="hero-contact-inline">
         <a href="mailto:booking@roodyroodboy.com">booking@roodyroodboy.com</a>
         <a href="tel:+50934507575">+509 3450 7575</a>
@@ -589,6 +660,7 @@ Index · HTML
     </div>
     <h1 class="display">Roody<br>Roodboy</h1>
     <p class="hero-sub">Konpa. Afro-Caribbean. R&B. One of Haiti's defining contemporary voices — available for concerts, festivals, private events, and international tours.</p>
+    <a class="hero-cta" href="#contact">Request Booking</a>
   </div>
   <div class="hero-contact">
     <span class="label">Booking</span>
@@ -597,22 +669,22 @@ Index · HTML
   </div>
   <span class="scroll-cue" style="bottom:96px;">Scroll — Découvrir</span>
   <div class="hero-socials">
-    <a href="https://www.instagram.com/roodyroodboyhaiti" target="_blank" rel="noopener" aria-label="Instagram">
+    <a href="https://www.instagram.com/roodyroodboyhaiti" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
       <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.27-2.91.57a5.9 5.9 0 0 0-2.14 1.39A5.9 5.9 0 0 0 .6 4.17c-.3.76-.51 1.63-.57 2.91C-.01 8.36 0 8.77 0 12s.01 3.64.07 4.92c.06 1.28.27 2.15.57 2.91.3.79.71 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.63.51 2.91.57 1.28.06 1.69.07 4.94.07s3.66-.01 4.94-.07c1.28-.06 2.15-.27 2.91-.57a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.51-1.63.57-2.91.06-1.28.07-1.69.07-4.92s-.01-3.64-.07-4.92c-.06-1.28-.27-2.15-.57-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.79.64c-.76-.3-1.63-.51-2.91-.57C15.6.01 15.19 0 11.94 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
     </a>
-    <a href="https://www.youtube.com/@RoodyRoodboy" target="_blank" rel="noopener" aria-label="YouTube">
+    <a href="https://www.youtube.com/@RoodyRoodboy" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
       <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
     </a>
-    <a href="https://open.spotify.com/intl-fr/artist/5VgONLRcpRrg4FbBstSxhN" target="_blank" rel="noopener" aria-label="Spotify">
+    <a href="https://open.spotify.com/intl-fr/artist/5VgONLRcpRrg4FbBstSxhN" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
       <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.6 11.66 1.34.36.22.47.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 0 1-.55-1.8c4.36-1.32 9.79-.68 13.5 1.6.44.27.58.85.31 1.29zm.13-3.41C15.24 8.3 8.83 8.1 5.12 9.2a1.12 1.12 0 1 1-.64-2.15c4.25-1.28 11.32-1.04 15.8 1.62a1.12 1.12 0 1 1-1.18 1.9z"/></svg>
     </a>
-    <a href="https://music.apple.com/us/artist/roody-roodboy/634161826" target="_blank" rel="noopener" aria-label="Apple Music">
+    <a href="https://music.apple.com/us/artist/roody-roodboy/634161826" target="_blank" rel="noopener noreferrer" aria-label="Apple Music">
       <svg viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.05C21 .461 20.253.196 19.466.06c-.573-.1-1.154-.13-1.734-.13H6.268c-.417 0-.834.03-1.25.09-1.02.15-1.93.51-2.71 1.19C1.42 1.96.9 2.87.62 3.98.35 5.05.28 6.14.28 7.24v9.53c0 1.09.07 2.18.34 3.25.28 1.1.8 2.02 1.69 2.75.78.66 1.69 1.03 2.7 1.19.42.06.83.09 1.25.09h11.46c.58 0 1.16-.03 1.73-.13.79-.14 1.53-.4 2.11-.83 1.11-.75 1.86-1.74 2.18-3.05.2-.83.28-1.68.28-2.53V6.12zM17.13 6.1c.15 0 .3.02.44.05.44.13.65.55.51.99a2.7 2.7 0 0 1-.28.55c-.35.5-.85.79-1.44.9-.13.03-.26.04-.4.04h-.05c-.15 0-.3-.02-.44-.05a.85.85 0 0 1-.51-.99c.06-.19.15-.38.28-.55.35-.5.85-.79 1.44-.9.13-.03.26-.04.4-.04h.05zm-.16 4.53v6.02c0 .38-.02.77-.13 1.14-.19.66-.62 1.11-1.28 1.34-.28.1-.57.14-.87.14-.63 0-1.16-.2-1.55-.7a1.7 1.7 0 0 1-.36-1.06c0-.53.2-.96.58-1.32.29-.27.63-.44 1.01-.55.31-.09.63-.16.94-.24.34-.09.5-.28.5-.63v-3.6c0-.2-.1-.3-.29-.27l-4.68 1v5.9c0 .38-.02.77-.13 1.14-.19.66-.62 1.11-1.28 1.34-.28.1-.57.14-.87.14-.63 0-1.16-.2-1.55-.7a1.7 1.7 0 0 1-.36-1.06c0-.53.2-.96.58-1.32.29-.27.63-.44 1.01-.55.31-.09.63-.16.94-.24.34-.09.5-.28.5-.63V9.4c0-.44.15-.68.58-.78l5.9-1.26c.09-.02.18-.03.28-.03.42 0 .68.24.68.68v3.62z"/></svg>
     </a>
-    <a href="https://audiomack.com/roodyroodboy" target="_blank" rel="noopener" aria-label="Audiomack">
+    <a href="https://audiomack.com/roodyroodboy" target="_blank" rel="noopener noreferrer" aria-label="Audiomack">
       <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7 8.5l5-2.9v12.8l-5-2.9V8.5zm10 0v6.9l-3.5-2v-3l3.5-2z"/></svg>
     </a>
-    <a href="https://m.soundcloud.com/roodyroodboy" target="_blank" rel="noopener" aria-label="SoundCloud">
+    <a href="https://m.soundcloud.com/roodyroodboy" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
       <svg viewBox="0 0 24 24"><path d="M1.5 11.5a.5.5 0 0 0-1 0v4a.5.5 0 0 0 1 0v-4zm2-1.5a.5.5 0 0 0-1 0v6.5a.5.5 0 0 0 1 0V10zm2-1a.5.5 0 0 0-1 0v8a.5.5 0 0 0 1 0v-8zm2-.7a.5.5 0 0 0-1 0v9.4a.5.5 0 0 0 1 0V8.3zm2-.8a.5.5 0 0 0-1 0v11a.5.5 0 0 0 1 0v-11zm1.5-1.2c-.28 0-.5.22-.5.5v12.4c0 .28.22.5.5.5s.5-.22.5-.5V6.8c0-.28-.22-.5-.5-.5zm2 .4a.6.6 0 0 0-.6.6v11.8c0 .33.27.6.6.6s.6-.27.6-.6V7.2a.6.6 0 0 0-.6-.6zm7.4 3.3a4.2 4.2 0 0 0-1.75.38A5.1 5.1 0 0 0 14.1 6a.5.5 0 0 0-.6.4v12.2c.03.26.24.46.5.46h9.2A2.8 2.8 0 0 0 26 16.3a2.8 2.8 0 0 0-2.8-2.8c-.1 0-.2 0-.3.01a4.2 4.2 0 0 0-3.6-3.7z"/></svg>
     </a>
   </div>
@@ -620,12 +692,12 @@ Index · HTML
  
 <div class="mark-divider">
   <div class="rule"></div>
-  <div class="mark-wrap"><img src="img/logo.png" alt=""></div>
+  <div class="mark-wrap"><img src="img/logo.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>
 </div>
  
 <section class="bio" id="bio">
   <div class="bio-img">
-    <img src="img/blue.jpg" alt="Roody Roodboy portrait">
+    <img src="img/blue.jpg" alt="Portrait of Roody Roodboy" loading="lazy" decoding="async">
   </div>
   <div class="bio-text">
     <span class="side-label display">Biography</span>
@@ -646,12 +718,22 @@ Index · HTML
     <div>
       <h2 class="display">Roody's Most <span class="hl">Successful</span> Songs</h2>
     </div>
-    <div class="platform-links">
-      <a href="https://open.spotify.com/intl-fr/artist/5VgONLRcpRrg4FbBstSxhN" target="_blank" rel="noopener">Spotify</a>
-      <a href="https://music.apple.com/us/artist/roody-roodboy/634161826" target="_blank" rel="noopener">Apple Music</a>
-      <a href="https://www.youtube.com/@RoodyRoodboy" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://audiomack.com/roodyroodboy" target="_blank" rel="noopener">Audiomack</a>
-      <a href="https://m.soundcloud.com/roodyroodboy" target="_blank" rel="noopener">SoundCloud</a>
+    <div class="platform-links" aria-label="Listen to Roody Roodboy">
+      <a href="https://open.spotify.com/intl-fr/artist/5VgONLRcpRrg4FbBstSxhN" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.6 11.66 1.34.36.22.47.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 0 1-.55-1.8c4.36-1.32 9.79-.68 13.5 1.6.44.27.58.85.31 1.29zm.13-3.41C15.24 8.3 8.83 8.1 5.12 9.2a1.12 1.12 0 1 1-.64-2.15c4.25-1.28 11.32-1.04 15.8 1.62a1.12 1.12 0 1 1-1.18 1.9z"/></svg>
+      </a>
+      <a href="https://music.apple.com/us/artist/roody-roodboy/634161826" target="_blank" rel="noopener noreferrer" aria-label="Apple Music">
+        <svg viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.05C21 .461 20.253.196 19.466.06c-.573-.1-1.154-.13-1.734-.13H6.268c-.417 0-.834.03-1.25.09-1.02.15-1.93.51-2.71 1.19C1.42 1.96.9 2.87.62 3.98.35 5.05.28 6.14.28 7.24v9.53c0 1.09.07 2.18.34 3.25.28 1.1.8 2.02 1.69 2.75.78.66 1.69 1.03 2.7 1.19.42.06.83.09 1.25.09h11.46c.58 0 1.16-.03 1.73-.13.79-.14 1.53-.4 2.11-.83 1.11-.75 1.86-1.74 2.18-3.05.2-.83.28-1.68.28-2.53V6.12zM17.13 6.1c.15 0 .3.02.44.05.44.13.65.55.51.99a2.7 2.7 0 0 1-.28.55c-.35.5-.85.79-1.44.9-.13.03-.26.04-.4.04h-.05c-.15 0-.3-.02-.44-.05a.85.85 0 0 1-.51-.99c.06-.19.15-.38.28-.55.35-.5.85-.79 1.44-.9.13-.03.26-.04.4-.04h.05zm-.16 4.53v6.02c0 .38-.02.77-.13 1.14-.19.66-.62 1.11-1.28 1.34-.28.1-.57.14-.87.14-.63 0-1.16-.2-1.55-.7a1.7 1.7 0 0 1-.36-1.06c0-.53.2-.96.58-1.32.29-.27.63-.44 1.01-.55.31-.09.63-.16.94-.24.34-.09.5-.28.5-.63v-3.6c0-.2-.1-.3-.29-.27l-4.68 1v5.9c0 .38-.02.77-.13 1.14-.19.66-.62 1.11-1.28 1.34-.28.1-.57.14-.87.14-.63 0-1.16-.2-1.55-.7a1.7 1.7 0 0 1-.36-1.06c0-.53.2-.96.58-1.32.29-.27.63-.44 1.01-.55.31-.09.63-.16.94-.24.34-.09.5-.28.5-.63V9.4c0-.44.15-.68.58-.78l5.9-1.26c.09-.02.18-.03.28-.03.42 0 .68.24.68.68v3.62z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@RoodyRoodboy" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+      </a>
+      <a href="https://audiomack.com/roodyroodboy" target="_blank" rel="noopener noreferrer" aria-label="Audiomack">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7 8.5l5-2.9v12.8l-5-2.9V8.5zm10 0v6.9l-3.5-2v-3l3.5-2z"/></svg>
+      </a>
+      <a href="https://m.soundcloud.com/roodyroodboy" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
+        <svg viewBox="0 0 24 24"><path d="M1.5 11.5a.5.5 0 0 0-1 0v4a.5.5 0 0 0 1 0v-4zm2-1.5a.5.5 0 0 0-1 0v6.5a.5.5 0 0 0 1 0V10zm2-1a.5.5 0 0 0-1 0v8a.5.5 0 0 0 1 0v-8zm2-.7a.5.5 0 0 0-1 0v9.4a.5.5 0 0 0 1 0V8.3zm2-.8a.5.5 0 0 0-1 0v11a.5.5 0 0 0 1 0v-11zm1.5-1.2c-.28 0-.5.22-.5.5v12.4c0 .28.22.5.5.5s.5-.22.5-.5V6.8c0-.28-.22-.5-.5-.5zm2 .4a.6.6 0 0 0-.6.6v11.8c0 .33.27.6.6.6s.6-.27.6-.6V7.2a.6.6 0 0 0-.6-.6zm7.4 3.3a4.2 4.2 0 0 0-1.75.38A5.1 5.1 0 0 0 14.1 6a.5.5 0 0 0-.6.4v12.2c.03.26.24.46.5.46h9.2A2.8 2.8 0 0 0 26 16.3a2.8 2.8 0 0 0-2.8-2.8c-.1 0-.2 0-.3.01a4.2 4.2 0 0 0-3.6-3.7z"/></svg>
+      </a>
     </div>
   </div>
   <div class="track-list">
@@ -660,28 +742,28 @@ Index · HTML
         <span class="idx display">01</span>
         <div><span class="title">An Kachet</span><div class="note">His most-streamed track on Spotify</div></div>
       </div>
-      <iframe src="https://open.spotify.com/embed/track/1JrgKqgSU0WGVQutMofbqB?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe title="Listen to An Kachet on Spotify" src="https://open.spotify.com/embed/track/1JrgKqgSU0WGVQutMofbqB?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
     <div class="track">
       <div class="track-head">
         <span class="idx display">02</span>
         <div><span class="title">Fo Fim Kap Fèt</span><div class="note">One of his highest-streamed singles</div></div>
       </div>
-      <iframe src="https://open.spotify.com/embed/track/66rzCur3Wl9x3XQ61QaUET?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe title="Listen to Fo Fim Kap Fèt on Spotify" src="https://open.spotify.com/embed/track/66rzCur3Wl9x3XQ61QaUET?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
     <div class="track">
       <div class="track-head">
         <span class="idx display">03</span>
         <div><span class="title">Karese'm La</span><div class="note">A fan favorite with millions of streams</div></div>
       </div>
-      <iframe src="https://open.spotify.com/embed/track/6qPbXF9Sk432BOsta5J61j?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe title="Listen to Karese&#x27;m La on Spotify" src="https://open.spotify.com/embed/track/6qPbXF9Sk432BOsta5J61j?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
     <div class="track">
       <div class="track-head">
         <span class="idx display">04</span>
         <div><span class="title">Tranble</span><div class="note">A defining early hit, still a live favorite</div></div>
       </div>
-      <iframe src="https://open.spotify.com/embed/track/21YUQ95ER7LZy7KttsWfFy?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <iframe title="Listen to Tranble on Spotify" src="https://open.spotify.com/embed/track/21YUQ95ER7LZy7KttsWfFy?utm_source=generator&theme=0" width="100%" height="80" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   </div>
 </section>
@@ -721,7 +803,7 @@ Index · HTML
 </section>
  
 <section class="strip">
-  <img src="img/hero.jpg" alt="Roody Roodboy live">
+  <img src="img/hero.jpg" alt="Roody Roodboy performing live" loading="lazy" decoding="async">
   <div class="strip-content">
     <span class="eyebrow">On Stage</span>
     <h2 class="display">Music, culture, and passion — every time he performs</h2>
@@ -731,7 +813,7 @@ Index · HTML
  
 <section class="booking" id="contact">
   <div class="booking-intro">
-    <h2 class="display booking-title">Let's bring<br><span class="stroke-line">Roody Roodboy</span><br>to your event</h2>
+    <h2 class="display booking-title">Book<br><span class="stroke-line">Roody Roodboy</span><br>for your event</h2>
     <p>For booking inquiries, appearance requests, and performance opportunities, reach the management team directly or submit the form — we'll respond with availability and next steps.</p>
  
     <div class="contact-block">
@@ -745,22 +827,22 @@ Index · HTML
       </div>
     </div>
     <div class="social-row">
-      <a href="https://www.instagram.com/roodyroodboyhaiti" target="_blank" rel="noopener" aria-label="Instagram">
+      <a href="https://www.instagram.com/roodyroodboyhaiti" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
         <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.27-2.91.57a5.9 5.9 0 0 0-2.14 1.39A5.9 5.9 0 0 0 .6 4.17c-.3.76-.51 1.63-.57 2.91C-.01 8.36 0 8.77 0 12s.01 3.64.07 4.92c.06 1.28.27 2.15.57 2.91.3.79.71 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.63.51 2.91.57 1.28.06 1.69.07 4.94.07s3.66-.01 4.94-.07c1.28-.06 2.15-.27 2.91-.57a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.51-1.63.57-2.91.06-1.28.07-1.69.07-4.92s-.01-3.64-.07-4.92c-.06-1.28-.27-2.15-.57-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.79.64c-.76-.3-1.63-.51-2.91-.57C15.6.01 15.19 0 11.94 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.85-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg>
       </a>
-      <a href="https://www.youtube.com/@RoodyRoodboy" target="_blank" rel="noopener" aria-label="YouTube">
+      <a href="https://www.youtube.com/@RoodyRoodboy" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
         <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
       </a>
-      <a href="https://open.spotify.com/intl-fr/artist/5VgONLRcpRrg4FbBstSxhN" target="_blank" rel="noopener" aria-label="Spotify">
+      <a href="https://open.spotify.com/intl-fr/artist/5VgONLRcpRrg4FbBstSxhN" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
         <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.5 17.3a.75.75 0 0 1-1.03.25c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.6 11.66 1.34.36.22.47.68.25 1.03zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.98-8.15-2.56-11.97-1.4a.94.94 0 0 1-.55-1.8c4.36-1.32 9.79-.68 13.5 1.6.44.27.58.85.31 1.29zm.13-3.41C15.24 8.3 8.83 8.1 5.12 9.2a1.12 1.12 0 1 1-.64-2.15c4.25-1.28 11.32-1.04 15.8 1.62a1.12 1.12 0 1 1-1.18 1.9z"/></svg>
       </a>
-      <a href="https://music.apple.com/us/artist/roody-roodboy/634161826" target="_blank" rel="noopener" aria-label="Apple Music">
+      <a href="https://music.apple.com/us/artist/roody-roodboy/634161826" target="_blank" rel="noopener noreferrer" aria-label="Apple Music">
         <svg viewBox="0 0 24 24"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.05C21 .461 20.253.196 19.466.06c-.573-.1-1.154-.13-1.734-.13H6.268c-.417 0-.834.03-1.25.09-1.02.15-1.93.51-2.71 1.19C1.42 1.96.9 2.87.62 3.98.35 5.05.28 6.14.28 7.24v9.53c0 1.09.07 2.18.34 3.25.28 1.1.8 2.02 1.69 2.75.78.66 1.69 1.03 2.7 1.19.42.06.83.09 1.25.09h11.46c.58 0 1.16-.03 1.73-.13.79-.14 1.53-.4 2.11-.83 1.11-.75 1.86-1.74 2.18-3.05.2-.83.28-1.68.28-2.53V6.12zM17.13 6.1c.15 0 .3.02.44.05.44.13.65.55.51.99a2.7 2.7 0 0 1-.28.55c-.35.5-.85.79-1.44.9-.13.03-.26.04-.4.04h-.05c-.15 0-.3-.02-.44-.05a.85.85 0 0 1-.51-.99c.06-.19.15-.38.28-.55.35-.5.85-.79 1.44-.9.13-.03.26-.04.4-.04h.05zm-.16 4.53v6.02c0 .38-.02.77-.13 1.14-.19.66-.62 1.11-1.28 1.34-.28.1-.57.14-.87.14-.63 0-1.16-.2-1.55-.7a1.7 1.7 0 0 1-.36-1.06c0-.53.2-.96.58-1.32.29-.27.63-.44 1.01-.55.31-.09.63-.16.94-.24.34-.09.5-.28.5-.63v-3.6c0-.2-.1-.3-.29-.27l-4.68 1v5.9c0 .38-.02.77-.13 1.14-.19.66-.62 1.11-1.28 1.34-.28.1-.57.14-.87.14-.63 0-1.16-.2-1.55-.7a1.7 1.7 0 0 1-.36-1.06c0-.53.2-.96.58-1.32.29-.27.63-.44 1.01-.55.31-.09.63-.16.94-.24.34-.09.5-.28.5-.63V9.4c0-.44.15-.68.58-.78l5.9-1.26c.09-.02.18-.03.28-.03.42 0 .68.24.68.68v3.62z"/></svg>
       </a>
-      <a href="https://audiomack.com/roodyroodboy" target="_blank" rel="noopener" aria-label="Audiomack">
+      <a href="https://audiomack.com/roodyroodboy" target="_blank" rel="noopener noreferrer" aria-label="Audiomack">
         <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7 8.5l5-2.9v12.8l-5-2.9V8.5zm10 0v6.9l-3.5-2v-3l3.5-2z"/></svg>
       </a>
-      <a href="https://m.soundcloud.com/roodyroodboy" target="_blank" rel="noopener" aria-label="SoundCloud">
+      <a href="https://m.soundcloud.com/roodyroodboy" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud">
         <svg viewBox="0 0 24 24"><path d="M1.5 11.5a.5.5 0 0 0-1 0v4a.5.5 0 0 0 1 0v-4zm2-1.5a.5.5 0 0 0-1 0v6.5a.5.5 0 0 0 1 0V10zm2-1a.5.5 0 0 0-1 0v8a.5.5 0 0 0 1 0v-8zm2-.7a.5.5 0 0 0-1 0v9.4a.5.5 0 0 0 1 0V8.3zm2-.8a.5.5 0 0 0-1 0v11a.5.5 0 0 0 1 0v-11zm1.5-1.2c-.28 0-.5.22-.5.5v12.4c0 .28.22.5.5.5s.5-.22.5-.5V6.8c0-.28-.22-.5-.5-.5zm2 .4a.6.6 0 0 0-.6.6v11.8c0 .33.27.6.6.6s.6-.27.6-.6V7.2a.6.6 0 0 0-.6-.6zm7.4 3.3a4.2 4.2 0 0 0-1.75.38A5.1 5.1 0 0 0 14.1 6a.5.5 0 0 0-.6.4v12.2c.03.26.24.46.5.46h9.2A2.8 2.8 0 0 0 26 16.3a2.8 2.8 0 0 0-2.8-2.8c-.1 0-.2 0-.3.01a4.2 4.2 0 0 0-3.6-3.7z"/></svg>
       </a>
     </div>
@@ -785,7 +867,7 @@ Index · HTML
         </div>
         <div class="field">
           <label for="phone">Phone</label>
-          <input type="tel" id="phone">
+          <input type="tel" id="phone" autocomplete="tel">
         </div>
       </div>
       <div class="form-row">
@@ -810,7 +892,7 @@ Index · HTML
       </div>
       <div class="field">
         <label for="message">Message</label>
-        <textarea id="message" placeholder="Tell us about your event..."></textarea>
+        <textarea id="message" placeholder="Tell us about your event..." required></textarea>
       </div>
       <button type="submit" class="submit-btn">Submit Inquiry</button>
       <p class="form-note">Submissions are sent directly to the management team. We typically respond within 2–3 business days.</p>
@@ -822,9 +904,10 @@ Index · HTML
 <footer>
   <div class="foot-mark">
     <img src="img/logo.png" alt="Roody Roodboy">
-    <span>© 2026 Roody Roodboy. All rights reserved.</span>
+    <span>© 2026 Roody Roodboy. All Rights Reserved.</span>
   </div>
   <span>Official Booking Site</span>
+  <span>Official Booking Website</span>
 </footer>
  
 <script>
@@ -839,6 +922,10 @@ const mobileMenu = document.getElementById('mobileMenu');
 navToggle.addEventListener('click', function(){
   navToggle.classList.toggle('open');
   mobileMenu.classList.toggle('open');
+  const isOpen = navToggle.classList.contains('open');
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+  navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+  mobileMenu.setAttribute('aria-hidden', String(!isOpen));
 });
 mobileMenu.querySelectorAll('a').forEach(function(link){
   link.addEventListener('click', function(){
