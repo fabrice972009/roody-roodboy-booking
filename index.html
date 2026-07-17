@@ -1,3 +1,6 @@
+
+
+Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,7 @@
 <meta name="description" content="Official booking site for Roody Roodboy, one of Haiti's most celebrated contemporary artists. Book him for concerts, festivals, private events, and international tours.">
 <meta name="keywords" content="Roody Roodboy, Haitian music, Konpa, Haitian artist booking, Haitian hip hop, book Roody Roodboy">
 <meta name="author" content="Roody Roodboy">
-
+ 
 <!-- Open Graph / Facebook, Instagram, WhatsApp, iMessage -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Roody Roodboy — Official Booking">
@@ -15,7 +18,7 @@
 <meta property="og:image" content="img/og-image.jpg">
 <meta property="og:url" content="https://roodyroodboy.com">
 <meta property="og:site_name" content="Roody Roodboy">
-
+ 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Roody Roodboy — Official Booking">
@@ -49,7 +52,7 @@
     letter-spacing:0.01em;
   }
   a{color:inherit;text-decoration:none;}
-
+ 
   /* NAV */
   nav{
     position:fixed; top:0; left:0; right:0; z-index:100;
@@ -68,7 +71,7 @@
     transition:opacity .25s, border-color .25s;
   }
   .nav-links a:hover{ opacity:1; border-color:var(--gold); }
-
+ 
   /* MOBILE NAV */
   .nav-toggle{
     display:none;
@@ -89,7 +92,7 @@
   .nav-toggle.open span:nth-child(1){ transform:translateY(8px) rotate(45deg); }
   .nav-toggle.open span:nth-child(2){ opacity:0; }
   .nav-toggle.open span:nth-child(3){ transform:translateY(-8px) rotate(-45deg); }
-
+ 
   .mobile-menu{
     position:fixed; inset:0; z-index:150;
     background:var(--ink);
@@ -106,7 +109,7 @@
     color:var(--paper); letter-spacing:0.02em;
   }
   .mobile-menu a:hover{ color:var(--gold); }
-
+ 
   /* HERO */
   .hero{
     position:relative;
@@ -200,7 +203,7 @@
   }
   .hero-socials a:hover{ opacity:1; border-color:var(--gold); transform:translateY(-2px); }
   .hero-socials svg{ width:17px; height:17px; fill:currentColor; }
-
+ 
   /* MARK DIVIDER */
   .mark-divider{
     position:relative;
@@ -219,7 +222,7 @@
     z-index:0;
   }
   .mark-divider .mark-wrap{ position:relative; z-index:1; background:var(--ink); padding:0 28px; }
-
+ 
   /* BIO */
   .bio{
     display:grid;
@@ -237,7 +240,16 @@
     width:100%; height:100%; object-fit:cover;
     filter:contrast(1.05);
   }
-  .bio-text{ padding-left:64px; }
+  .bio-text{ padding-left:64px; position:relative; }
+  .side-label{
+    position:absolute; left:10px; top:6px;
+    writing-mode:vertical-rl; transform:rotate(180deg);
+    font-size:14px; letter-spacing:0.4em;
+    color:transparent;
+    -webkit-text-stroke:1px var(--gold);
+    opacity:0.85;
+    pointer-events:none;
+  }
   .section-label{
     font-size:12px; letter-spacing:0.28em; text-transform:uppercase;
     color:var(--red); display:block; margin-bottom:20px; font-weight:600;
@@ -255,13 +267,21 @@
     margin-bottom:20px;
   }
   .stat-row{
-    display:flex; gap:48px; margin-top:36px;
+    display:flex; gap:14px 36px; margin-top:44px;
     flex-wrap:wrap;
+    align-items:baseline;
   }
-  .stat{ border-left:2px solid var(--gold); padding-left:16px; }
-  .stat .num{ font-family:'Anton',sans-serif; font-size:32px; display:block; }
-  .stat .label{ font-size:12px; letter-spacing:0.06em; color:var(--gray); text-transform:uppercase; margin-top:4px; }
-
+  .stat{ display:inline-flex; align-items:baseline; gap:10px; }
+  .stat .num{ font-family:'Anton',sans-serif; line-height:1; }
+  .stat:nth-child(1) .num{ font-size:clamp(42px,4.8vw,60px); }
+  .stat:nth-child(2) .num{
+    font-size:clamp(26px,2.8vw,36px);
+    color:transparent;
+    -webkit-text-stroke:1px var(--paper);
+  }
+  .stat:nth-child(3) .num{ font-size:clamp(30px,3.4vw,44px); color:var(--gold); }
+  .stat .label{ font-size:11px; letter-spacing:0.14em; color:var(--gray); text-transform:uppercase; }
+ 
   /* AVAILABLE FOR */
   .services{
     padding:0 5vw 120px;
@@ -286,41 +306,80 @@
     margin-bottom:10px;
   }
   .service-item p{ font-size:14px; color:rgba(242,240,235,0.6); line-height:1.5; }
-
+ 
   /* MUSIC */
   .music{ padding:0 5vw 120px; }
   .music-head{ margin-bottom:48px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; }
   .music-head h2{ font-size:clamp(32px,4vw,56px); max-width:600px; line-height:1.05; }
-  .platform-links{ display:flex; gap:20px; flex-wrap:wrap; }
-  .platform-links a{
-    font-size:12px; letter-spacing:0.1em; text-transform:uppercase;
-    padding:10px 18px; border:1px solid var(--line); transition:border-color .25s, color .25s;
+  .hl{
+    background:linear-gradient(100deg, transparent 0 4%, rgba(201,162,74,0.32) 4% 96%, transparent 96%);
+    padding:0 0.06em;
   }
-  .platform-links a:hover{ border-color:var(--gold); color:var(--gold); }
+  .platform-links{ display:flex; flex-wrap:wrap; align-items:baseline; }
+  .platform-links a{
+    font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:rgba(242,240,235,0.72); transition:color .25s;
+  }
+  .platform-links a:hover{ color:var(--gold); }
+  .platform-links a + a::before{ content:'·'; color:var(--gold); margin:0 14px; }
   .track-list{ border-top:1px solid var(--line); }
-
+ 
   /* EVENTS */
   .events{ padding:0 5vw 120px; }
-  .events-head{ margin-bottom:48px; }
+  .events-head{
+    margin-bottom:48px;
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:20px; flex-wrap:wrap;
+  }
   .events-head h2{ font-size:clamp(32px,4vw,56px); max-width:600px; line-height:1.05; }
+  .events-meta{
+    font-size:12px; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--gold);
+  }
   .event-list{ border-top:1px solid var(--line); }
   .event-row{
     display:grid;
-    grid-template-columns:140px 1fr;
-    align-items:center;
-    gap:24px;
-    padding:22px 0;
+    grid-template-columns:110px 1fr auto;
+    align-items:baseline;
+    gap:28px;
+    padding:26px 0;
     border-bottom:1px solid var(--line);
+    transition:padding-left .25s;
   }
-  .event-row .date{
+  .event-row:hover{ padding-left:10px; }
+  .event-row .e-date{
+    display:flex; align-items:baseline; gap:8px;
     font-family:'Anton',sans-serif;
-    font-size:16px; letter-spacing:0.04em;
-    color:var(--gold); text-transform:uppercase;
   }
-  .event-row .name{ font-size:19px; font-weight:600; }
-  .event-row .venue{ font-size:13px; color:var(--gray); margin-top:3px; font-weight:400; }
+  .event-row .e-date b{
+    font-weight:400;
+    font-size:clamp(30px,3.4vw,44px);
+    line-height:1;
+    color:var(--paper);
+  }
+  .event-row .e-date i{
+    font-style:normal;
+    font-size:11px; letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .event-row .name{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(19px,2.2vw,26px);
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    font-weight:400;
+    transition:color .25s;
+  }
+  .event-row:hover .name{ color:var(--gold); }
+  .event-row .venue{
+    font-size:11px; color:var(--gray);
+    letter-spacing:0.12em; text-transform:uppercase;
+    text-align:right;
+  }
   @media (max-width: 640px){
-    .event-row{ grid-template-columns:1fr; gap:6px; }
+    .event-row{ grid-template-columns:80px 1fr; gap:14px; }
+    .event-row .venue{ grid-column:2; text-align:left; margin-top:2px; }
   }
   .track{
     padding:26px 0;
@@ -337,7 +396,7 @@
   .track .title{ font-size:20px; font-weight:600; }
   .track .note{ font-size:13px; color:var(--gray); margin-top:4px; font-weight:400; }
   .track iframe{ border-radius:8px; width:100%; height:80px; display:block; }
-
+ 
   /* PERFORMANCE STRIP */
   .strip{
     position:relative;
@@ -356,10 +415,17 @@
     background:linear-gradient(90deg, rgba(11,11,12,0.92) 0%, rgba(11,11,12,0.45) 55%, rgba(11,11,12,0.15) 100%);
   }
   .strip-content{ position:relative; z-index:2; padding:0 5vw; max-width:560px; }
-  .strip-content .eyebrow{ color:var(--gold); }
+  .strip-content .eyebrow{
+    display:inline-block;
+    color:var(--gold);
+    border:1px solid rgba(201,162,74,0.55);
+    padding:7px 16px;
+    letter-spacing:0.3em;
+    transform:rotate(-2deg);
+  }
   .strip-content h2{ font-size:clamp(30px,4vw,50px); line-height:1.1; margin-bottom:18px; }
   .strip-content p{ font-size:15px; color:rgba(242,240,235,0.75); line-height:1.65; }
-
+ 
   /* BOOKING */
   .booking{
     padding:120px 5vw 100px;
@@ -372,6 +438,13 @@
     line-height:1.05;
     margin-bottom:24px;
     max-width:460px;
+  }
+  .booking-title{ line-height:1.02; }
+  .booking-title .stroke-line{
+    display:inline-block;
+    margin-left:0.9em;
+    color:transparent;
+    -webkit-text-stroke:1.5px var(--paper);
   }
   .booking-intro p{
     font-size:15px; line-height:1.7; color:rgba(242,240,235,0.72);
@@ -397,7 +470,7 @@
   }
   .social-row a:hover{ opacity:1; border-color:var(--gold); transform:translateY(-2px); }
   .social-row svg{ width:18px; height:18px; fill:currentColor; }
-
+ 
   form{ display:flex; flex-direction:column; gap:22px; }
   .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:22px; }
   .field{ display:flex; flex-direction:column; gap:8px; }
@@ -441,7 +514,7 @@
     line-height:1.6;
   }
   .success-msg.show{ display:block; }
-
+ 
   /* FOOTER */
   footer{
     border-top:1px solid var(--line);
@@ -451,7 +524,7 @@
   }
   footer .foot-mark{ display:flex; align-items:center; gap:10px; }
   footer .foot-mark img{ height:18px; filter:invert(1); opacity:0.6; }
-
+ 
   @media (max-width: 900px){
     .nav-links{ display:none; }
     .nav-toggle{ display:flex; }
@@ -472,6 +545,7 @@
     .hero-socials svg{ width:14px; height:14px; }
     .bio{ grid-template-columns:1fr; gap:40px; padding-bottom:80px; }
     .bio-text{ padding-left:0; }
+    .side-label{ display:none; }
     .service-grid{ grid-template-columns:repeat(2,1fr); }
     .booking{ grid-template-columns:1fr; gap:56px; padding-top:80px; }
     .form-row{ grid-template-columns:1fr; }
@@ -480,7 +554,7 @@
 </style>
 </head>
 <body>
-
+ 
 <nav>
   <div class="nav-mark">
     <img src="img/logo.png" alt="Roody Roodboy">
@@ -495,14 +569,14 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-
+ 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#bio">Biography</a>
   <a href="#music">Music</a>
   <a href="#events">Events</a>
   <a href="#contact">Booking</a>
 </div>
-
+ 
 <section class="hero">
   <img src="img/hero.jpg" alt="Roody Roodboy">
   <div class="hero-content">
@@ -543,18 +617,18 @@
     </a>
   </div>
 </section>
-
+ 
 <div class="mark-divider">
   <div class="rule"></div>
   <div class="mark-wrap"><img src="img/logo.png" alt=""></div>
 </div>
-
+ 
 <section class="bio" id="bio">
   <div class="bio-img">
     <img src="img/blue.jpg" alt="Roody Roodboy portrait">
   </div>
   <div class="bio-text">
-    <span class="section-label">Biography</span>
+    <span class="side-label display">Biography</span>
     <h2 class="display">A defining voice in Haitian music</h2>
     <p>Roody Roodboy is one of Haiti's most celebrated contemporary artists, renowned for his powerful voice, captivating stage presence, and ability to blend emotion with infectious rhythms. Fusing Konpa, Afro-Caribbean, R&B, and modern pop influences, he has become a defining figure in Haitian music, earning millions of streams and a devoted fan base across Haiti and the global Haitian diaspora.</p>
     <p>Known for delivering unforgettable live performances, Roody brings unmatched energy and authenticity to every stage. His catalog of hit songs, heartfelt lyrics, and dynamic performances have made him a sought-after headliner for concerts, festivals, cultural celebrations, private events, and international tours.</p>
@@ -566,12 +640,11 @@
     </div>
   </div>
 </section>
-
+ 
 <section class="music" id="music">
   <div class="music-head">
     <div>
-      <span class="section-label">Popular Tracks</span>
-      <h2 class="display">Roody's Most Successful Songs</h2>
+      <h2 class="display">Roody's Most <span class="hl">Successful</span> Songs</h2>
     </div>
     <div class="platform-links">
       <a href="https://open.spotify.com/intl-fr/artist/5VgONLRcpRrg4FbBstSxhN" target="_blank" rel="noopener">Spotify</a>
@@ -612,36 +685,41 @@
     </div>
   </div>
 </section>
-
+ 
 <section class="events" id="events">
   <div class="events-head">
-    <span class="section-label">Upcoming Events</span>
     <h2 class="display">Where to catch him next</h2>
+    <span class="events-meta">Aug 2026 · 5 Dates</span>
   </div>
   <div class="event-list">
     <div class="event-row">
-      <span class="date">Aug 6</span>
-      <div><span class="name">Meet & Greet</span><div class="venue">Caribbean Bar & Restaurant</div></div>
+      <span class="e-date"><b>06</b><i>Aug</i></span>
+      <span class="name">Meet & Greet</span>
+      <span class="venue">Caribbean Bar & Restaurant</span>
     </div>
     <div class="event-row">
-      <span class="date">Aug 7</span>
-      <div><span class="name">Soirée du Konpa</span><div class="venue">Caribbean Bar & Restaurant</div></div>
+      <span class="e-date"><b>07</b><i>Aug</i></span>
+      <span class="name">Soirée du Konpa</span>
+      <span class="venue">Caribbean Bar & Restaurant</span>
     </div>
     <div class="event-row">
-      <span class="date">Aug 8</span>
-      <div><span class="name">Caribbean Pool Party Fest</span><div class="venue">Private Location</div></div>
+      <span class="e-date"><b>08</b><i>Aug</i></span>
+      <span class="name">Caribbean Pool Party Fest</span>
+      <span class="venue">Private Location</span>
     </div>
     <div class="event-row">
-      <span class="date">Aug 9</span>
-      <div><span class="name">Creole Brunch</span><div class="venue">Caribbean Bar & Restaurant</div></div>
+      <span class="e-date"><b>09</b><i>Aug</i></span>
+      <span class="name">Creole Brunch</span>
+      <span class="venue">Caribbean Bar & Restaurant</span>
     </div>
     <div class="event-row">
-      <span class="date">Aug 9</span>
-      <div><span class="name">After Party: Game Night</span><div class="venue">Caribbean Bar & Restaurant</div></div>
+      <span class="e-date"><b>09</b><i>Aug</i></span>
+      <span class="name">After Party: Game Night</span>
+      <span class="venue">Caribbean Bar & Restaurant</span>
     </div>
   </div>
 </section>
-
+ 
 <section class="strip">
   <img src="img/hero.jpg" alt="Roody Roodboy live">
   <div class="strip-content">
@@ -650,13 +728,12 @@
     <p>From intimate rooms to festival crowds of thousands, Roody's live shows are built on authenticity — a reputation earned one performance at a time.</p>
   </div>
 </section>
-
+ 
 <section class="booking" id="contact">
   <div class="booking-intro">
-    <span class="section-label">Booking</span>
-    <h2 class="display">Let's bring Roody Roodboy to your event</h2>
+    <h2 class="display booking-title">Let's bring<br><span class="stroke-line">Roody Roodboy</span><br>to your event</h2>
     <p>For booking inquiries, appearance requests, and performance opportunities, reach the management team directly or submit the form — we'll respond with availability and next steps.</p>
-
+ 
     <div class="contact-block">
       <div class="contact-row">
         <span class="k">Email</span>
@@ -688,7 +765,7 @@
       </a>
     </div>
   </div>
-
+ 
   <div>
     <form id="bookingForm">
       <div class="form-row">
@@ -741,7 +818,7 @@
     </form>
   </div>
 </section>
-
+ 
 <footer>
   <div class="foot-mark">
     <img src="img/logo.png" alt="Roody Roodboy">
@@ -749,14 +826,14 @@
   </div>
   <span>Official Booking Site</span>
 </footer>
-
+ 
 <script>
 document.getElementById('bookingForm').addEventListener('submit', function(e){
   e.preventDefault();
   document.getElementById('successMsg').classList.add('show');
   this.reset();
 });
-
+ 
 const navToggle = document.getElementById('navToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 navToggle.addEventListener('click', function(){
@@ -770,6 +847,6 @@ mobileMenu.querySelectorAll('a').forEach(function(link){
   });
 });
 </script>
-
+ 
 </body>
 </html>
